@@ -82,3 +82,5 @@ jobs:
 
       - name: "Test"
         run: "composer test"
+        env:
+          ELASTICSEARCH_URL: "localhost:${{ job.services.postgres.ports[5432] }}"

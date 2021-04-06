@@ -9,7 +9,7 @@ use Flow\ETL\Loader;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 
-final class ElasticsearchLoader implements Loader
+final class ElasticsearchPHPLoader implements Loader
 {
     private Client $client;
 
