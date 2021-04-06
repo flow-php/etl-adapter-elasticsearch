@@ -49,7 +49,6 @@ jobs:
           tools: composer:v2
           php-version: "${{ matrix.php-version }}"
           ini-values: memory_limit=-1
-          extensions: curl
 
       - name: "Get Composer Cache Directory"
         id: composer-cache
