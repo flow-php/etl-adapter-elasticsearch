@@ -4,26 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ff29d7cce588c56948dd86d45a7cc8d",
+    "content-hash": "1f98312d794736f90ffbcae28dee80d1",
     "packages": [
         {
             "name": "flow-php/etl",
-            "version": "dev-poc/serialization",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flow-php/etl.git",
-                "reference": "d3fa12d88acaae9809b0bc618320e35e0f44b5ca"
+                "reference": "22a7b708e099339324a7d797e700af0258fc5663"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flow-php/etl/zipball/d3fa12d88acaae9809b0bc618320e35e0f44b5ca",
-                "reference": "d3fa12d88acaae9809b0bc618320e35e0f44b5ca",
+                "url": "https://api.github.com/repos/flow-php/etl/zipball/22a7b708e099339324a7d797e700af0258fc5663",
+                "reference": "22a7b708e099339324a7d797e700af0258fc5663",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "php": "^7.4.2 || ~8.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -45,9 +46,9 @@
             ],
             "support": {
                 "issues": "https://github.com/flow-php/etl/issues",
-                "source": "https://github.com/flow-php/etl/tree/poc/serialization"
+                "source": "https://github.com/flow-php/etl/tree/1.x"
             },
-            "time": "2022-02-07T20:41:42+00:00"
+            "time": "2022-02-12T20:03:05+00:00"
         }
     ],
     "packages-dev": [
@@ -226,21 +227,21 @@
         },
         {
             "name": "flow-php/etl-adapter-json",
-            "version": "dev-poc/serialization",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flow-php/etl-adapter-json.git",
-                "reference": "209c13256519f06e2a09d7b3a0bbd3ab8e1ca9e6"
+                "reference": "d964c74d42de07ff04fa516a7e24ac8a39840b1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flow-php/etl-adapter-json/zipball/209c13256519f06e2a09d7b3a0bbd3ab8e1ca9e6",
-                "reference": "209c13256519f06e2a09d7b3a0bbd3ab8e1ca9e6",
+                "url": "https://api.github.com/repos/flow-php/etl-adapter-json/zipball/d964c74d42de07ff04fa516a7e24ac8a39840b1e",
+                "reference": "d964c74d42de07ff04fa516a7e24ac8a39840b1e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "flow-php/etl": "dev-poc/serialization as 1.x-dev",
+                "flow-php/etl": "^1.0@dev",
                 "php": "^7.4 | ^8.0"
             },
             "require-dev": {
@@ -249,6 +250,7 @@
             "suggest": {
                 "halaxa/json-machine": "Memory safe json library used by Extractors and Loaders"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -272,9 +274,9 @@
             ],
             "support": {
                 "issues": "https://github.com/flow-php/etl-adapter-json/issues",
-                "source": "https://github.com/flow-php/etl-adapter-json/tree/poc/serialization"
+                "source": "https://github.com/flow-php/etl-adapter-json/tree/1.x"
             },
-            "time": "2022-02-09T07:57:29+00:00"
+            "time": "2022-02-12T20:54:37+00:00"
         },
         {
             "name": "psr/log",
@@ -403,20 +405,7 @@
             "time": "2022-02-11T10:27:51+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "flow-php/etl",
-            "version": "dev-poc/serialization",
-            "alias": "1.x-dev",
-            "alias_normalized": "1.9999999.9999999.9999999-dev"
-        },
-        {
-            "package": "flow-php/etl-adapter-json",
-            "version": "dev-poc/serialization",
-            "alias": "1.x-dev",
-            "alias_normalized": "1.9999999.9999999.9999999-dev"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "flow-php/etl": 20,
