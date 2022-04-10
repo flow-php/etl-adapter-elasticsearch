@@ -104,6 +104,10 @@ final class ElasticsearchLoader implements Loader
             $parameters = $this->parameters;
             $parameters['body'] = [];
 
+            /**
+             * @var array<int, array{body:array,id:string}> $dataCollection
+             * @phpstan-ignore-next-line
+             */
             $dataCollection = $chunk->map(fn (Row $row) : Row => Row::create(
                 $factory->create($row),
                 new Row\Entry\ArrayEntry('body', $row->map(
@@ -117,10 +121,8 @@ final class ElasticsearchLoader implements Loader
                 )->toArray())
             ))->toArray();
 
-            /**
-             * @var array<array{body:array,id:string}> $data
-             */
             foreach ($dataCollection as $data) {
+                /** @phpstan-ignore-next-line  */
                 $parameters['body'][] = [
                     $this->method => [
                         '_id' => $data['id'],
@@ -129,8 +131,10 @@ final class ElasticsearchLoader implements Loader
                 ];
 
                 if ($this->method === 'update') {
+                    /** @phpstan-ignore-next-line  */
                     $parameters['body'][] = ['doc' => $data['body']];
                 } else {
+                    /** @phpstan-ignore-next-line  */
                     $parameters['body'][] = $data['body'];
                 }
             }
