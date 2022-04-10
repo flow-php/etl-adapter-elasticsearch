@@ -11,59 +11,38 @@ use Flow\ETL\Loader;
 use Flow\ETL\Row;
 use Flow\ETL\Rows;
 
+/**
+ * @implements Loader<array{
+ *  config: array{
+ *    hosts?: array<string>,
+ *    connectionParams?: array<mixed>,
+ *    retries?: int,
+ *    sniffOnStart?: boolean,
+ *    sslCert?: array<string>,
+ *    sslKey?: array<string>,
+ *    sslVerification?: boolean|string,
+ *    elasticMetaHeader?: boolean,
+ *    includePortInHostHeader?: boolean
+ *  },
+ *  chunk_size: int,
+ *  index: string,
+ *  id_factory: IdFactory,
+ *  parameters: array<mixed>,
+ *  method: string
+ * }>
+ */
 final class ElasticsearchLoader implements Loader
 {
-    /**
-     * @var array{
-     *  hosts?: array<string>,
-     *  connectionParams?: array<mixed>,
-     *  retries?: int,
-     *  sniffOnStart?: boolean,
-     *  sslCert?: array<string>,
-     *  sslKey?: array<string>,
-     *  sslVerification?: boolean|string,
-     *  elasticMetaHeader?: boolean,
-     *  includePortInHostHeader?: boolean
-     * }
-     */
-    private array $config;
-
-    private int $chunkSize;
-
-    private string $index;
-
-    private IdFactory $idFactory;
-
-    private array $parameters;
-
     private ?Client $client;
 
     private string $method;
 
     /**
-     * @param array{
-     *  hosts?: array<string>,
-     *  connectionParams?: array<mixed>,
-     *  retries?: int,
-     *  sniffOnStart?: boolean,
-     *  sslCert?: array<string>,
-     *  sslKey?: array<string>,
-     *  sslVerification?: boolean|string,
-     *  elasticMetaHeader?: boolean,
-     *  includePortInHostHeader?: boolean
-     * } $clientConfig
-     * @param int $chunkSize
-     * @param string $index
-     * @param IdFactory $idFactory
+     * @param array{hosts?: array<string>, connectionParams?: array<mixed>, retries?: int, sniffOnStart?: boolean, sslCert?: array<string>, sslKey?: array<string>, sslVerification?: (boolean | string), elasticMetaHeader?: boolean, includePortInHostHeader?: boolean} $config
      * @param array<mixed> $parameters
      */
-    public function __construct(array $clientConfig, int $chunkSize, string $index, IdFactory $idFactory, array $parameters = [])
+    public function __construct(private array $config, private int $chunkSize, private string $index, private IdFactory $idFactory, private array $parameters = [])
     {
-        $this->config = $clientConfig;
-        $this->chunkSize = $chunkSize;
-        $this->index = $index;
-        $this->idFactory = $idFactory;
-        $this->parameters = $parameters;
         $this->client = null;
         $this->method = 'index';
     }
@@ -80,9 +59,6 @@ final class ElasticsearchLoader implements Loader
      *  elasticMetaHeader?: boolean,
      *  includePortInHostHeader?: boolean
      * } $clientConfig
-     * @param int $chunkSize
-     * @param string $index
-     * @param IdFactory $idFactory
      * @param array<mixed> $parameters
      */
     public static function update(array $clientConfig, int $chunkSize, string $index, IdFactory $idFactory, array $parameters = []) : self
@@ -93,26 +69,6 @@ final class ElasticsearchLoader implements Loader
         return $loader;
     }
 
-    /**
-     * @return array{
-     *  config: array{
-     *    hosts?: array<string>,
-     *    connectionParams?: array<mixed>,
-     *    retries?: int,
-     *    sniffOnStart?: boolean,
-     *    sslCert?: array<string>,
-     *    sslKey?: array<string>,
-     *    sslVerification?: boolean|string,
-     *    elasticMetaHeader?: boolean,
-     *    includePortInHostHeader?: boolean
-     *  },
-     *  chunk_size: int,
-     *  index: string,
-     *  id_factory: IdFactory,
-     *  parameters: array<mixed>,
-     *  method: string
-     * }
-     */
     public function __serialize() : array
     {
         return [
@@ -125,27 +81,6 @@ final class ElasticsearchLoader implements Loader
         ];
     }
 
-    /**
-     * @param array{
-     *  config: array{
-     *    hosts?: array<string>,
-     *    connectionParams?: array<mixed>,
-     *    retries?: int,
-     *    sniffOnStart?: boolean,
-     *    sslCert?: array<string>,
-     *    sslKey?: array<string>,
-     *    sslVerification?: boolean|string,
-     *    elasticMetaHeader?: boolean,
-     *    includePortInHostHeader?: boolean
-     *  },
-     *  chunk_size: int,
-     *  index: string,
-     *  id_factory: IdFactory,
-     *  parameters: array<mixed>,
-     *  method: string
-     * } $data
-     * @psalm-suppress MoreSpecificImplementedParamType
-     */
     public function __unserialize(array $data) : void
     {
         $this->config = $data['config'];
@@ -174,7 +109,7 @@ final class ElasticsearchLoader implements Loader
                 new Row\Entry\ArrayEntry('body', $row->map(
                     function (Row\Entry $entry) : Row\Entry {
                         if ($entry instanceof Row\Entry\JsonEntry) {
-                            return new Row\Entry\ArrayEntry($entry->name(), (array) \json_decode($entry->value(), true));
+                            return new Row\Entry\ArrayEntry($entry->name(), (array) \json_decode($entry->value(), true, 512, JSON_THROW_ON_ERROR));
                         }
 
                         return $entry;

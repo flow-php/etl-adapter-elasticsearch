@@ -13,11 +13,8 @@ use Flow\ETL\Row\Entry;
  */
 final class EntryIdFactory implements IdFactory
 {
-    private string $entryName;
-
-    public function __construct(string $entryName)
+    public function __construct(private string $entryName)
     {
-        $this->entryName = $entryName;
     }
 
     /**
