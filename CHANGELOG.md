@@ -1,4 +1,4 @@
-## [Unreleased] - 2022-07-23
+## [Unreleased] - 2022-07-24
 
 ### Added
 - [#90](https://github.com/flow-php/etl-adapter-elasticsearch/pull/90) - **Partial update** - [@norberttech](https://github.com/norberttech)
@@ -27,6 +27,7 @@
 - [0f739f](https://github.com/flow-php/etl-adapter-elasticsearch/commit/0f739f4cc1c6bc9d4d173ee0078c02ab120d1b76) - **dependencies** - [@norberttech](https://github.com/norberttech)
 
 ### Removed
+- [bf3e94](https://github.com/flow-php/etl-adapter-elasticsearch/commit/bf3e94c7509e37736e2434128c7a5929a7e8f253) - **failing test in dbal platform** - [@norberttech](https://github.com/norberttech)
 - [#109](https://github.com/flow-php/etl-adapter-elasticsearch/pull/109) - **Deprecated classes** - [@norberttech](https://github.com/norberttech)
 - [2777ce](https://github.com/flow-php/etl-adapter-elasticsearch/commit/2777cea6ad3165ef10c4716d7a2e86f7f34a8ac4) - **tests at windows on github** - [@norberttech](https://github.com/norberttech)
 
