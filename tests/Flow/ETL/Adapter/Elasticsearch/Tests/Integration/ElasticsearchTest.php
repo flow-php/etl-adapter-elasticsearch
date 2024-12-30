@@ -10,7 +10,7 @@ use Flow\ETL\Adapter\Elasticsearch\EntryIdFactory\EntryIdFactory;
 use Flow\ETL\Adapter\Elasticsearch\Tests\Doubles\Spy\HttpClientSpy;
 use Flow\ETL\Flow;
 
-final class ElasticsearchTest extends TestCase
+final class ElasticsearchTest extends ElasticsearchTestCase
 {
     public function test_batch_size_when_its_not_explicitly_set() : void
     {

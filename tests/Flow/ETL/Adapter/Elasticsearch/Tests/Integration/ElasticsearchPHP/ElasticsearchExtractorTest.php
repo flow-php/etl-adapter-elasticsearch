@@ -8,10 +8,15 @@ use function Flow\ETL\Adapter\Elasticsearch\{es_hits_to_rows, from_es, to_es_bul
 use function Flow\ETL\DSL\{bool_entry, df, generate_random_int, int_entry, string_entry};
 use Flow\ETL\Adapter\Elasticsearch\ElasticsearchPHP\DocumentDataSource;
 use Flow\ETL\Adapter\Elasticsearch\EntryIdFactory\EntryIdFactory;
-use Flow\ETL\Adapter\Elasticsearch\Tests\Integration\TestCase;
-use Flow\ETL\{Config, Flow, FlowContext, Row, Rows};
+use Flow\ETL\{Adapter\Elasticsearch\Tests\Integration\ElasticsearchTestCase,
+    Config,
+    Flow,
+    FlowContext,
+    Row,
+    Rows
+};
 
-final class ElasticsearchExtractorTest extends TestCase
+final class ElasticsearchExtractorTest extends ElasticsearchTestCase
 {
     public const INDEX_NAME = 'etl-test-index';
 
