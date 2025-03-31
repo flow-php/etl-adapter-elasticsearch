@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Flow\ETL\Adapter\Elasticsearch\Tests\Integration\ElasticsearchPHP;
 
 use function Flow\ETL\Adapter\Elasticsearch\{es_hits_to_rows, from_es, to_es_bulk_index};
-use function Flow\ETL\DSL\data_frame;
 use function Flow\ETL\DSL\{bool_entry, df, generate_random_int, int_entry, string_entry};
 use function Flow\ETL\DSL\{config, flow_context, rows};
+use function Flow\ETL\DSL\data_frame;
 use Flow\ETL\Adapter\Elasticsearch\ElasticsearchPHP\DocumentDataSource;
 use Flow\ETL\Adapter\Elasticsearch\EntryIdFactory\EntryIdFactory;
 use Flow\ETL\{Adapter\Elasticsearch\Tests\Integration\ElasticsearchTestCase,

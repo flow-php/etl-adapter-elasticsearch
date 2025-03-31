@@ -6,8 +6,8 @@ namespace Flow\ETL\Adapter\Elasticsearch\Tests\Context;
 
 use function Flow\ETL\Adapter\Elasticsearch\to_es_bulk_index;
 use function Flow\ETL\DSL\{config, flow_context};
-use Elastic\Elasticsearch\Exception\ClientResponseException;
 use Elastic\Elasticsearch\{Client, ClientBuilder};
+use Elastic\Elasticsearch\Exception\ClientResponseException;
 use Flow\ETL\Adapter\Elasticsearch\IdFactory;
 use Flow\ETL\{Rows};
 

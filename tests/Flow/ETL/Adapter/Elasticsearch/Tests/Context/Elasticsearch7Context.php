@@ -6,8 +6,8 @@ namespace Flow\ETL\Adapter\Elasticsearch\Tests\Context;
 
 use function Flow\ETL\Adapter\Elasticsearch\to_es_bulk_index;
 use function Flow\ETL\DSL\{config, flow_context};
-use Elasticsearch\Common\Exceptions\{BadRequest400Exception, Missing404Exception};
 use Elasticsearch\{Client, ClientBuilder};
+use Elasticsearch\Common\Exceptions\{BadRequest400Exception, Missing404Exception};
 use Flow\ETL\Adapter\Elasticsearch\IdFactory;
 use Flow\ETL\{Rows};
 
