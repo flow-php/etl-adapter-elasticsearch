@@ -38,12 +38,12 @@ final class ElasticsearchLoader implements Loader
      *  hosts?: array<string>,
      *  connectionParams?: array<mixed>,
      *  retries?: int,
-     *  sniffOnStart?: boolean,
+     *  sniffOnStart?: bool,
      *  sslCert?: array<string>,
      *  sslKey?: array<string>,
-     *  sslVerification?: boolean|string,
-     *  elasticMetaHeader?: boolean,
-     *  includePortInHostHeader?: boolean
+     *  sslVerification?: bool|string,
+     *  elasticMetaHeader?: bool,
+     *  includePortInHostHeader?: bool
      * } $clientConfig
      */
     public static function update(array $clientConfig, string $index, IdFactory $idFactory) : self

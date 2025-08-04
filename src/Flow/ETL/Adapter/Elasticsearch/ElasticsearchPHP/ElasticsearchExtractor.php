@@ -26,12 +26,12 @@ final class ElasticsearchExtractor implements Extractor
      *  hosts?: array<string>,
      *  connectionParams?: array<mixed>,
      *  retries?: int,
-     *  sniffOnStart?: boolean,
+     *  sniffOnStart?: bool,
      *  sslCert?: array<string>,
      *  sslKey?: array<string>,
-     *  sslVerification?: boolean|string,
-     *  elasticMetaHeader?: boolean,
-     *  includePortInHostHeader?: boolean
+     *  sslVerification?: bool|string,
+     *  elasticMetaHeader?: bool,
+     *  includePortInHostHeader?: bool
      * } $config
      * @param array<mixed> $parameters - https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html
      */

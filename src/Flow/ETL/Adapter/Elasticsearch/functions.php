@@ -20,12 +20,12 @@ use Flow\ETL\Attribute\{DocumentationDSL, DocumentationExample, Module, Type};
  *  hosts?: array<string>,
  *  connectionParams?: array<mixed>,
  *  retries?: int,
- *  sniffOnStart?: boolean,
+ *  sniffOnStart?: bool,
  *  sslCert?: array<string>,
  *  sslKey?: array<string>,
- *  sslVerification?: boolean|string,
- *  elasticMetaHeader?: boolean,
- *  includePortInHostHeader?: boolean
+ *  sslVerification?: bool|string,
+ *  elasticMetaHeader?: bool,
+ *  includePortInHostHeader?: bool
  * } $config
  * @param string $index
  * @param IdFactory $id_factory
@@ -64,12 +64,12 @@ function hash_id_factory(string ...$entry_names) : IdFactory
  *  hosts?: array<string>,
  *  connectionParams?: array<mixed>,
  *  retries?: int,
- *  sniffOnStart?: boolean,
+ *  sniffOnStart?: bool,
  *  sslCert?: array<string>,
  *  sslKey?: array<string>,
- *  sslVerification?: boolean|string,
- *  elasticMetaHeader?: boolean,
- *  includePortInHostHeader?: boolean
+ *  sslVerification?: bool|string,
+ *  elasticMetaHeader?: bool,
+ *  includePortInHostHeader?: bool
  * } $config
  * @param string $index
  * @param IdFactory $id_factory
@@ -109,12 +109,12 @@ function es_hits_to_rows(DocumentDataSource $source = DocumentDataSource::source
  *  hosts?: array<string>,
  *  connectionParams?: array<mixed>,
  *  retries?: int,
- *  sniffOnStart?: boolean,
+ *  sniffOnStart?: bool,
  *  sslCert?: array<string>,
  *  sslKey?: array<string>,
- *  sslVerification?: boolean|string,
- *  elasticMetaHeader?: boolean,
- *  includePortInHostHeader?: boolean
+ *  sslVerification?: bool|string,
+ *  elasticMetaHeader?: bool,
+ *  includePortInHostHeader?: bool
  * } $config
  * @param array<mixed> $parameters - https://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html
  * @param ?array<mixed> $pit_params - when used extractor will create point in time to stabilize search results. Point in time is automatically closed when last element is extracted. https://www.elastic.co/guide/en/elasticsearch/reference/master/point-in-time-api.html - @deprecated use withPointInTime method instead
